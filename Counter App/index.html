@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container{
+            border: 1px solid black;
+            width: 30vw;
+            height: 30vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+        
+        .container div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        span{
+            border: 1px solid black;
+            padding: 5px;
+            margin: 5px;
+        }
+
+        button:hover{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Counter App</h1>
+        <div>
+            <button class="decrease">Decrement by 1</button>
+            <span class="output">0</span>
+            <button class="increase">Increment by 1</button>
+        </div>
+        <button class="reset">Reset Value</button>
+    </div>
+<script>
+    const incBtn=document.querySelector('.increase')
+    incBtn.addEventListener('click',increase)
+    function increase(){
+        let currValue=document.querySelector('.output').innerText
+        currValue++
+        document.querySelector('.output').innerText=currValue
+    }
+
+    const decBtn=document.querySelector('.decrease')
+    decBtn.addEventListener('click',decrease)
+    function decrease(){
+        let currValue=document.querySelector('.output').innerText
+        currValue--
+        document.querySelector('.output').innerText=currValue
+    }
+
+    const resBtn=document.querySelector('.reset')
+    resBtn.addEventListener('click',reset)
+    function reset(){
+        let currValue=document.querySelector('.output').innerText
+        currValue=0
+        document.querySelector('.output').innerText=currValue
+    }
+</script>
+</body>
+</html>
